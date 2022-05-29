@@ -9,5 +9,6 @@ class AppStrings{
   static const welcome = "  Welcome!";
   static const signIn = "Sign In";
   static const password = "Password";
+  static const searchAnything = 'Search anything ...';
 
 }

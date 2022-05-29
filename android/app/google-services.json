@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "235414246531",
+    "project_id": "gradpro-apppump",
+    "storage_bucket": "gradpro-apppump.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235414246531:android:78c5aaf29b85dc6b79b7b6",
+        "android_client_info": {
+          "package_name": "net.apppump.gradpro.gradpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235414246531-oj36vp2g9clb03sbq5hh71l03ipfcs8j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.apppump.gradpro.gradpro",
+            "certificate_hash": "01a279cbeaaf626e273dd7a6c5d7e4e26fb24d5c"
+          }
+        },
+        {
+          "client_id": "235414246531-5nbav08kvca4jv65ao7rsjgbvuua43gq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArvdrPdQwQKTMmlITzwRZ8Nn-MFFZL0VY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235414246531-5nbav08kvca4jv65ao7rsjgbvuua43gq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

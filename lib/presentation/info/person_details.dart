@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:gradpro/presentation/component/defaultTextFormField.dart';
 import 'package:gradpro/presentation/resources/assets_manager.dart';
 import 'package:gradpro/presentation/resources/color_manager.dart';
 import 'package:gradpro/presentation/resources/routes_manger.dart';
 import 'package:gradpro/presentation/resources/strings_manager.dart';
 import 'package:gradpro/presentation/resources/values_manager.dart';
+
+import '../../component/defaultTextFormField.dart';
 
 class AddPersonDetails extends StatelessWidget {
   AddPersonDetails({Key? key}) : super(key: key);

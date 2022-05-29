@@ -1,12 +1,13 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:gradpro/presentation/component/defaultTextFormField.dart';
 import 'package:gradpro/presentation/resources/assets_manager.dart';
 import 'package:gradpro/presentation/resources/color_manager.dart';
 import 'package:gradpro/presentation/resources/inputValidator.dart';
 import 'package:gradpro/presentation/resources/routes_manger.dart';
 import 'package:gradpro/presentation/resources/strings_manager.dart';
 import 'package:gradpro/presentation/resources/values_manager.dart';
+
+import '../../component/defaultTextFormField.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);

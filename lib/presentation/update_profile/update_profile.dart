@@ -2,11 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gradpro/presentation/component/defaultTextFormField.dart';
 import 'package:gradpro/presentation/info/multi_select_intersts.dart';
 import 'package:gradpro/presentation/resources/values_manager.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
+
+import '../../component/defaultTextFormField.dart';
 
 class UpdateProfileScreen extends StatefulWidget {
   const UpdateProfileScreen({Key? key}) : super(key: key);

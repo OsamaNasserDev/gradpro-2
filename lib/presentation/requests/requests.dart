@@ -13,9 +13,6 @@ class RequestsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            searchBar(context),
-            const SizedBox(height: 100
-              ,),
             Padding(
               padding: const EdgeInsets.all(30.0),
               child: Icon(Icons.print,size: 140),

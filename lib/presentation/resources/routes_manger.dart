@@ -19,6 +19,8 @@ import 'package:gradpro/presentation/resources/strings_manager.dart';
 import 'package:gradpro/presentation/send_project_request/view.dart';
 import 'package:gradpro/presentation/update_profile/update_profile.dart';
 
+import '../main/widgets/filter.dart';
+
 class Routes {
   static const String chooseSignRoute = "/chooseSign";
   static const String loginRoute = "/login";
@@ -34,13 +36,14 @@ class Routes {
   static const String updateProfileRoute = "/updateProfile";
   static const String myProjectPrograssRoute = "/myProjectPrograss";
   static const String myProfileRoute = "/myProfile";
+  static const String filterRoute = "/filter";
 }
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.chooseSignRoute:
-        return MaterialPageRoute(builder: (_) => ChooseSignScreen());
+        return MaterialPageRoute(builder: (_) => BottomNavBarScreen());
       case Routes.loginRoute:
         return MaterialPageRoute(builder: (_) =>  LoginScreen());
       case Routes.addPhotoScreen:
@@ -57,6 +60,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) =>  ProjectDetails());
       case Routes.sendProjectRequestRoute:
         return MaterialPageRoute(builder: (_) =>  SendRequestScreen());
+      case Routes.filterRoute:
+        return MaterialPageRoute(builder: (_) =>  const FilterScreen());
       case Routes.addPersonDetailsRoute:
         return MaterialPageRoute(builder: (_) =>  AddPersonDetails());
       case Routes.activeProjectsRoute:
