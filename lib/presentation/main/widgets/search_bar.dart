@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../component/methods.dart';
+import '../../../view_model/main_provider.dart';
+import '../../resources/routes_manger.dart';
+import '../../resources/strings_manager.dart';
 
 Widget searchBar(context) {
   double _w = MediaQuery.of(context).size.width;
+  final mainProvider = Provider.of<MainProvider>(context);
+  final mainProviderForMethods = Provider.of<MainProvider>(context,listen: false);
   return Padding(
     padding: EdgeInsets.fromLTRB(_w / 20, _w / 25, _w / 20, 0),
     child: Column(
@@ -27,6 +35,7 @@ Widget searchBar(context) {
               ),
               child: TextField(
                 maxLines: 1,
+                onSubmitted: mainProviderForMethods.searchOnSubmitted,
                 decoration: InputDecoration(
                   hoverColor: Colors.transparent,
                   fillColor: Colors.transparent,
@@ -40,7 +49,7 @@ Widget searchBar(context) {
                       fontSize: _w / 22),
                   prefixIcon:
                   Icon(Icons.search, color: Colors.black.withOpacity(.6)),
-                  labelText: 'Search anything.....',
+                  labelText: AppStrings.searchAnything,
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide.none),
@@ -58,7 +67,7 @@ Widget searchBar(context) {
                 icon: Icon(Icons.menu_rounded,
                     size: 20, color: Colors.black.withOpacity(.6)),
                 onPressed: () {
-
+                  Navigator.of(context).pushNamed(Routes.filterRoute);
                 },
               ),
             ),
