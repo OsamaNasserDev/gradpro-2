@@ -9,41 +9,39 @@ class RequestsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(30.0),
-              child: Icon(Icons.print,size: 140),
-            ),
-            const SizedBox(height: 10
-              ,),
-            Text("No requests yet",style: Theme.of(context).textTheme.displayLarge),
-            const SizedBox(height: 10
-              ,),
-            Text("Reach out and start your project. Great things might happen",style: Theme.of(context).textTheme.bodyLarge),
-            const SizedBox(height: 20
-              ,),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: OutlinedButton(
-                        onPressed: () {
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: Icon(Icons.print,size: 140),
+          ),
+          const SizedBox(height: 10
+            ,),
+          Text("No requests yet",style: Theme.of(context).textTheme.displayLarge),
+          const SizedBox(height: 10
+            ,),
+          Text("Reach out and start your project. Great things might happen",style: Theme.of(context).textTheme.bodyLarge),
+          const SizedBox(height: 20
+            ,),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton(
+                      onPressed: () {
 
-                        },
-                        child: const Padding(
-                          padding: EdgeInsets.all(AppPadding.p12),
-                          child: Text("Start anew request"),
-                        )),
-                  ),
-                ],
-              ),
+                      },
+                      child: const Padding(
+                        padding: EdgeInsets.all(AppPadding.p12),
+                        child: Text("Start a new request"),
+                      )),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

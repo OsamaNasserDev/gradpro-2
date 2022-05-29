@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gradpro/presentation/info/multi_select_intersts.dart';
 import 'package:gradpro/presentation/resources/values_manager.dart';
+import 'package:gradpro/presentation/signup_view/multi_select_intersts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
@@ -21,7 +21,6 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
 
   final editNameController = TextEditingController();
   final editBioController = TextEditingController();
-  final editPhoneController = TextEditingController();
   final editEmailController = TextEditingController();
 
   // get profile image
@@ -119,11 +118,10 @@ setState(() {
               const SizedBox(height: 25,),
               defaultTextFormField(text: "name", controllerText: editNameController,),
               defaultTextFormField(text: "bio", controllerText: editBioController,),
-              defaultTextFormField(text: "phone", controllerText:editPhoneController,),
               defaultTextFormField(text: "Email", controllerText:editEmailController,),
               const SizedBox(height: 5,),
               MultiSelectDialogField(
-                items: _fildesOfInterst.map((e) => MultiSelectItem(e, e.name!)).toList(),
+                items: _fildesOfInterst.map((e) => MultiSelectItem(e, e.name)).toList(),
                 listType: MultiSelectListType.CHIP,
                 onConfirm: (values) {
                   _selectedFildesOfInterst = values;
@@ -134,7 +132,7 @@ setState(() {
                 height: 20,
               ),
               MultiSelectDialogField(
-                items: _softSkills.map((e) => MultiSelectItem(e, e.name!)).toList(),
+                items: _softSkills.map((e) => MultiSelectItem(e, e.name)).toList(),
                 listType: MultiSelectListType.CHIP,
                 onConfirm: (values) {
                   _selectedSoftSkilles = values;

@@ -17,8 +17,12 @@ class MyProfileScreen extends StatelessWidget {
               child: TextButton.icon(
                 onPressed: () =>
                     Navigator.pushNamed(context, Routes.updateProfileRoute),
-                icon: Icon(Icons.edit),
-                label: Text("edit"),
+                icon: Icon(Icons.edit,color: Colors.white),
+                label: Text("edit",style: TextStyle(
+                  color: Colors.white
+                ),
+
+                ),
               ),
             )
         ],
@@ -32,35 +36,12 @@ class MyProfileScreen extends StatelessWidget {
               children: [
                 Container(
                   height: 190,
-                  child: Stack(
-                    alignment: AlignmentDirectional.bottomCenter,
-                    children: [
-                      Align(
-                        alignment: AlignmentDirectional.topCenter,
-                        child: Card(
-                          clipBehavior: Clip.hardEdge,
-                          elevation: 0,
-                          child: Image(
-                            image: NetworkImage(
-                                "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-                            fit: BoxFit.cover,
-                            height: 140,
-                            width: double.infinity,
-                          ),
-                        ),
-                      ),
-                      CircleAvatar(
-                        radius: 64,
-                        backgroundColor:
-                            Theme.of(context).scaffoldBackgroundColor,
-                        child: CircleAvatar(
-                          radius: 60.0,
-                          backgroundImage: NetworkImage(
-                            "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                          ),
-                        ),
-                      ),
-                    ],
+                  alignment: Alignment.center,
+                  child: CircleAvatar(
+                    radius: 60.0,
+                    backgroundImage: NetworkImage(
+                      "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -152,7 +133,7 @@ class MyProfileScreen extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(horizontal: 3),
                             child: Chip(
                                 label:
-                                    Text(DataManager.softSkills[index].name)),
+                                    Text(DataManager.languages[index].name)),
                           );
                         }),
                       ),
@@ -166,7 +147,7 @@ class MyProfileScreen extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(horizontal: 3),
                             child: Chip(
                                 label:
-                                    Text(DataManager.softSkills[index].name)),
+                                    Text(DataManager.tools[index].name)),
                           );
                         }),
                       ),
@@ -194,7 +175,7 @@ class MyProfileScreen extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(horizontal: 3),
                             child: Chip(
                                 label:
-                                    Text(DataManager.softSkills[index].name)),
+                                    Text(DataManager.fildesOfInterst[index].name)),
                           );
                         }),
                       ),

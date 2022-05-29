@@ -8,7 +8,7 @@ import 'package:gradpro/presentation/resources/values_manager.dart';
 ThemeData getApplicationTheme() {
   return ThemeData(
 
-    primarySwatch: Colors.orange,
+    primarySwatch: Colors.blue,
     // main theme
     primaryColor: ColorManager.primary,
     primaryColorLight: ColorManager.lightPrimary,

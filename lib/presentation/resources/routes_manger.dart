@@ -5,9 +5,6 @@ import 'package:gradpro/presentation/active_projects/view.dart';
 import 'package:gradpro/presentation/choose_sign/view.dart';
 import 'package:gradpro/presentation/doctor_requests/view.dart';
 import 'package:gradpro/presentation/follow_your_projects/view.dart';
-import 'package:gradpro/presentation/info/add_your_photo.dart';
-import 'package:gradpro/presentation/info/multi_select_intersts.dart';
-import 'package:gradpro/presentation/info/person_details.dart';
 import 'package:gradpro/presentation/login/view.dart';
 import 'package:gradpro/presentation/main/project_detils.dart';
 import 'package:gradpro/presentation/main/view.dart';
@@ -20,6 +17,8 @@ import 'package:gradpro/presentation/send_project_request/view.dart';
 import 'package:gradpro/presentation/update_profile/update_profile.dart';
 
 import '../main/widgets/filter.dart';
+import '../signup_view/add_your_photo.dart';
+import '../signup_view/multi_select_intersts.dart';
 
 class Routes {
   static const String chooseSignRoute = "/chooseSign";
@@ -31,7 +30,6 @@ class Routes {
   static const String bottomNavBarRoute = "/bottomNavBar";
   static const String projectDetailsRoute = "/projectDetails";
   static const String sendProjectRequestRoute = "/sendProjectRequest";
-  static const String addPersonDetailsRoute = "/addPersonDetails";
   static const String activeProjectsRoute = "/activeProjects";
   static const String updateProfileRoute = "/updateProfile";
   static const String myProjectPrograssRoute = "/myProjectPrograss";
@@ -43,7 +41,7 @@ class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.chooseSignRoute:
-        return MaterialPageRoute(builder: (_) => BottomNavBarScreen());
+        return MaterialPageRoute(builder: (_) => ChooseSignScreen());
       case Routes.loginRoute:
         return MaterialPageRoute(builder: (_) =>  LoginScreen());
       case Routes.addPhotoScreen:
@@ -62,8 +60,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) =>  SendRequestScreen());
       case Routes.filterRoute:
         return MaterialPageRoute(builder: (_) =>  const FilterScreen());
-      case Routes.addPersonDetailsRoute:
-        return MaterialPageRoute(builder: (_) =>  AddPersonDetails());
+
       case Routes.activeProjectsRoute:
         return MaterialPageRoute(builder: (_) =>  ActiveProjectsScreen());
       case Routes.updateProfileRoute:
