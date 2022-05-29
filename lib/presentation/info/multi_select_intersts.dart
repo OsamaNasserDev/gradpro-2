@@ -78,11 +78,11 @@ class _MultiSelectState extends State<MultiSelect> {
   }
 }
 class SelectDataModel {
-  final int? id;
-  final String? name;
+  final int id;
+  final String name;
 
   SelectDataModel({
-    this.id,
-    this.name,
+    required this.id,
+    required this.name,
   });
 }
