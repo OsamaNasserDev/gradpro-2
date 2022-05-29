@@ -12,7 +12,7 @@ class ProfileScreen extends StatelessWidget {
       children: [
         Container(
           height: 200,
-          color: ColorManager.grey,
+          color: Colors.blue.withOpacity(0.2),
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Row(
@@ -21,7 +21,7 @@ class ProfileScreen extends StatelessWidget {
                   radius: 44,
                   backgroundColor: ColorManager.background,
                   child: CircleAvatar(
-                    backgroundColor: Colors.grey,
+                    backgroundColor: Colors.blue.withOpacity(0.6),
                     radius: 40.0,
                     child: Icon(
                       Icons.person,size: 60,

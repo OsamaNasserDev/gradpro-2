@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:gradpro/presentation/resources/color_manager.dart';
 import 'package:gradpro/presentation/resources/routes_manger.dart';
-import 'package:gradpro/presentation/resources/strings_manager.dart';
 import 'package:gradpro/presentation/resources/values_manager.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -15,22 +14,25 @@ class AddPhotoScreen extends StatefulWidget {
 
 class _AddPhotoScreenState extends State<AddPhotoScreen> {
 
-  // get profile image
-  File? profileImage;
-  pickProfileImage({source = ImageSource.gallery}) async {
-    var pickedImage = await ImagePicker.platform.pickImage(source: source);
-    if (pickedImage != null) {
-      profileImage = File(pickedImage.path);
-      setState(() {});
-    } else {
-      // todo //////////////////////////
-      //toast
-      // print no image selected
-    }
-  }
+
 
   @override
   Widget build(BuildContext context) {
+
+    // get profile image
+   File? profileImage;
+    pickProfileImage({source = ImageSource.gallery}) async {
+      var pickedImage = await ImagePicker.platform.pickImage(source: source);
+      if (pickedImage != null) {
+        profileImage = File(pickedImage.path);
+        setState(() {});
+        print("Success picked");
+      } else {
+        // todo //////////////////////////
+        //toast
+        // print no image selected
+      }
+    }
     return Scaffold(
       backgroundColor: ColorManager.background,
       body: Center(
@@ -94,16 +96,16 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
               ),const SizedBox(
                 height: AppSize.s60,
               ),
-              Row(
+              if(profileImage != null )Row(
                 children: [
                   Expanded(
                     child: ElevatedButton(
                         onPressed: () {
 
                         },
-                        child: const Padding(
+                        child:  Padding(
                           padding: EdgeInsets.all(AppPadding.p12),
-                          child: Text("Add photo"),
+                          child:  Text("Next"),
                         )),
                   ),
                 ],
@@ -116,7 +118,7 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                   Expanded(
                     child: OutlinedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, Routes.addPersonDetailsRoute);
+                          Navigator.pushNamed(context, Routes.multiSelectScreen);
 
                         },
                         child: const Padding(
@@ -126,6 +128,11 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                   ),
                 ],
               ),
+              TextButton(onPressed: (){
+                Navigator.pop(context);
+              }, child: Text(
+                "have an account? SignIn",style: Theme.of(context).textTheme.headlineLarge,
+              )),
             ],
           ),
         ),

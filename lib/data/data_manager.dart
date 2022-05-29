@@ -1,4 +1,5 @@
-import '../presentation/info/multi_select_intersts.dart';
+import 'package:gradpro/presentation/signup_view/multi_select_intersts.dart';
+
 
 class DataManager{
   static final List<SelectDataModel> fildesOfInterst = [
@@ -37,5 +38,42 @@ class DataManager{
     SelectDataModel(id: 28, name: "Self-starter"),
     SelectDataModel(id: 29, name: "Emotional intelligence"),
     SelectDataModel(id: 30, name: "Work ethic"),
+  ];
+
+  // languages
+  static final List<SelectDataModel> languages=[
+
+    SelectDataModel(id: 31, name: "SQL"),
+    SelectDataModel(id: 32, name: ".net"),
+    SelectDataModel(id: 33, name: "Dart"),
+    SelectDataModel(id: 34, name: "C"),
+    SelectDataModel(id: 35, name: "C++"),
+    SelectDataModel(id: 36, name: "C#"),
+    SelectDataModel(id: 37, name: "R"),
+    SelectDataModel(id: 38, name: "PHP"),
+    SelectDataModel(id: 39, name: "VB.Net"),
+    SelectDataModel(id: 40, name: "HTML"),
+    SelectDataModel(id: 41, name: "JavaScript"),
+    SelectDataModel(id: 42, name: "Python"),
+    SelectDataModel(id: 43, name: "Kotlin"),
+    SelectDataModel(id: 44, name: "Ruby"),
+  ];
+
+  // languages
+  static final List<SelectDataModel> tools =[
+
+    SelectDataModel(id: 45, name: "Excel"),
+    SelectDataModel(id: 46, name: "Android Studio"),
+    SelectDataModel(id: 47, name: "MySql"),
+    SelectDataModel(id: 48, name: "NetBeans"),
+    SelectDataModel(id: 49, name: "Eclipse"),
+    SelectDataModel(id: 50, name: "Camunda"),
+    SelectDataModel(id: 51, name: "Github"),
+    SelectDataModel(id: 52, name: "Git"),
+    SelectDataModel(id: 53, name: "Jira"),
+    SelectDataModel(id: 54, name: "Bootstrap"),
+    SelectDataModel(id: 55, name: "Angular js"),
+    SelectDataModel(id: 56, name: "Photoshop"),
+    SelectDataModel(id: 57, name: "illustrator"),
   ];
 }
