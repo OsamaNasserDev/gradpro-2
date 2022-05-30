@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gradpro/model/user.dart';
@@ -98,7 +99,7 @@ class MainProvider with ChangeNotifier {
   }
 
   final User? userAuthData = FirebaseAuth.instance.currentUser;
-
+  UserModel? userAllData;
   Future getUserData() async {
     final User? userAuthData = FirebaseAuth.instance.currentUser;
     if (userAuthData != null) {
@@ -110,10 +111,12 @@ class MainProvider with ChangeNotifier {
         print("this is get user data res id ${res.id}");
         final Map<String, dynamic>? result = res.data();
         if(result != null){
-          print("this is get user data res id ${json.encode(result)}");
-          UserModel userAllData = UserModel.fromJson(json.encode(result) as Map<String, dynamic>);
+          //final extractedData = json.decode(result) as Map<String, dynamic>;
 
-          print("this is user model name ${userAllData.name}");
+          print("this is get user data res id ${result}");
+          userAllData = UserModel.fromJson(result);
+
+          print("this is user model name ${userAllData!.name}");
         }
       });
     }
@@ -122,4 +125,258 @@ class MainProvider with ChangeNotifier {
   Future signOut() async {
     await FirebaseAuth.instance.signOut();
   }
+  /// request methods
+  sendRequest()async{
+    await signIn(email: "osama@gmail.com", password: "password");
+    await getUserData();
+if(userAllData != null){
+  print("asasasasasgggggggggggggggggggggggg");
+  await FirebaseDatabase.instance.ref("project").push().set({
+    'title':'title',
+    'description':'description',
+    'objectives':'objectives',
+    'others': ['others1', 'others2', 'others3'],
+    'tools': ['tools1', 'tools2', 'tools3'],
+    'languages': ['languages1', 'languages2', 'languages3'],
+    'students': [{'name': userAllData!.name,'id':userAllData!.id}],
+    'doctor': {'name': 'userAllData!.name','id':'userAllData!.id'},
+    'year':DateTime.now().year.toString(),
+    'progress': {
+      'main_percent': 80,
+      'file_word':'file word link',
+      'power_point':'file pdf link',
+      'chapters':[
+        {
+          'percent':100,
+          'introduction':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+          'problem_statement':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+          'objectives':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+          'users':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+          'tools':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+          'inputs_outputs':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+          'context_diagram':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+        },
+        {
+          'percent':100,
+          'literature_review':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+          'analysis':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+        },
+        {
+          'percent':100,
+          'introduction':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+          'interface_design':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+          'database_design':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+        },
+        {
+          'percent':100,
+          'introduction':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+          'implementation':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+          'testing':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+          'matrix_working_process':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0 // like role,
+              },
+            ],
+          },
+        },
+        {
+          'percent':100,
+          'introduction':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+              },
+            ],
+          },
+          'conclusion':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+          'future_work':{
+            "link":"pdf link",
+            "last_update":DateTime.now().toString(),
+            "chat":[
+              {
+                "feedback":"feedback body",
+                "type":0, // like role
+                'send_at':DateTime.now().toString()
+              },
+            ],
+          },
+        },
+      ]
+    },
+    'status':0
+  }).then((res) {
+    print("res");
+  });
+
+}
+  }
+
+  getAllRequest
 }

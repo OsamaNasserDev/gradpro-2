@@ -4,17 +4,26 @@ import 'package:flutter/widgets.dart';
 import 'package:gradpro/presentation/main/widgets/search_bar.dart';
 import 'package:gradpro/presentation/resources/color_manager.dart';
 import 'package:gradpro/presentation/resources/routes_manger.dart';
+import 'package:provider/provider.dart';
+
+import '../../view_model/main_provider.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final mainProvider = Provider.of<MainProvider>(context);
+    final mainProviderForMethods = Provider.of<MainProvider>(context,listen: false);
+
     return SafeArea(
       child: Container(
         height: double.infinity,
         child: Column(
           children: [
+            TextButton(onPressed: (){
+              mainProviderForMethods.sendRequest();
+            }, child: Text("click ")),
             searchBar(context),
             const SizedBox(height: 20
               ,),
