@@ -111,7 +111,9 @@ class MainProvider with ChangeNotifier {
         final Map<String, dynamic>? result = res.data();
         if(result != null){
           print("this is get user data res id ${json.encode(result)}");
-          User.
+          UserModel userAllData = UserModel.fromJson(json.encode(result) as Map<String, dynamic>);
+
+          print("this is user model name ${userAllData.name}");
         }
       });
     }
