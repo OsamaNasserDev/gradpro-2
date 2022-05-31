@@ -4,13 +4,24 @@ import 'package:flutter/widgets.dart';
 import 'package:gradpro/presentation/main/widgets/search_bar.dart';
 import 'package:gradpro/presentation/resources/color_manager.dart';
 import 'package:gradpro/presentation/resources/routes_manger.dart';
+import 'package:gradpro/test.dart';
 import 'package:provider/provider.dart';
 
 import '../../view_model/main_provider.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  @override
+  void initState() {
+    Provider.of<MainProvider>(context,listen: false).getAllProjects();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     final mainProvider = Provider.of<MainProvider>(context);
@@ -23,7 +34,20 @@ class MainScreen extends StatelessWidget {
           children: [
             TextButton(onPressed: (){
               mainProviderForMethods.sendRequest();
-            }, child: Text("click ")),
+            }, child: Text(" send ")),
+            TextButton(onPressed: (){
+              mainProviderForMethods.getAllProjects();
+            }, child: Text(" get ")),
+            TextButton(onPressed: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Test()));
+            }, child: Text(" go ")),
+            TextButton(onPressed: (){
+              mainProviderForMethods.approveProjectRequest(0);
+            }, child: Text(" approve ")),
+            TextButton(onPressed: (){
+              mainProviderForMethods.signOut();
+            }, child: Text(" log out ")),
+
             searchBar(context),
             const SizedBox(height: 20
               ,),
@@ -68,8 +92,9 @@ class MainScreen extends StatelessWidget {
                     child: ListView.builder(
                       shrinkWrap: true,
                       physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-                      itemCount: 20,
+                      itemCount: mainProvider.mobileProjects.length,
                       itemBuilder: (BuildContext context, int index) {
+                        var projectData = mainProvider.mobileProjects[index];
                         return InkWell(
                           onTap: (){
                             Navigator.pushNamed(context, Routes.projectDetailsRoute);
@@ -81,10 +106,10 @@ class MainScreen extends StatelessWidget {
                                 children: [
                                   Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text("title"),
-                                      Text("2022"),
+                                      Text(projectData.title.toString()),
+                                      Text(projectData.year.toString()),
                                     ],),
-                                  Text("body body body body body body body body body body body body body body body body body body body body body "),
+                                  Text(projectData.description.toString()),
                                   Row(mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       Icon(Icons.arrow_forward_ios_outlined)
@@ -103,8 +128,10 @@ class MainScreen extends StatelessWidget {
                     child: ListView.builder(
                       shrinkWrap: true,
                       physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-                      itemCount: 20,
+                      itemCount:mainProvider.desktopProjects.length,
                       itemBuilder: (BuildContext context, int index) {
+                        var projectData = mainProvider.desktopProjects[index];
+
                         return InkWell(
                           onTap: (){
                             Navigator.pushNamed(context, Routes.projectDetailsRoute);
@@ -116,10 +143,10 @@ class MainScreen extends StatelessWidget {
                                 children: [
                                   Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text("title"),
-                                      Text("2022"),
+                                      Text(projectData.title.toString()),
+                                      Text(projectData.year.toString()),
                                     ],),
-                                  Text("body body body body body body body body body body body body body body body body body body body body body "),
+                                  Text(projectData.description.toString()),
                                   Row(mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       Icon(Icons.arrow_forward_ios_outlined)
@@ -138,8 +165,10 @@ class MainScreen extends StatelessWidget {
                     child: ListView.builder(
                       shrinkWrap: true,
                       physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-                      itemCount: 20,
+                      itemCount:mainProvider.webProjects.length,
                       itemBuilder: (BuildContext context, int index) {
+                        var projectData = mainProvider.webProjects[index];
+
                         return InkWell(
                           onTap: (){
                             Navigator.pushNamed(context, Routes.projectDetailsRoute);
@@ -151,10 +180,10 @@ class MainScreen extends StatelessWidget {
                                 children: [
                                   Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text("title"),
-                                      Text("2022"),
+                                      Text(projectData.title.toString()),
+                                      Text(projectData.year.toString()),
                                     ],),
-                                  Text("body body body body body body body body body body body body body body body body body body body body body "),
+                                  Text(projectData.description.toString()),
                                   Row(mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       Icon(Icons.arrow_forward_ios_outlined)

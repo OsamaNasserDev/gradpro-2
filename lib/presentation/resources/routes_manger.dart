@@ -14,6 +14,7 @@ import 'package:gradpro/presentation/project_feedback/view.dart';
 import 'package:gradpro/presentation/register/view.dart';
 import 'package:gradpro/presentation/resources/strings_manager.dart';
 import 'package:gradpro/presentation/send_project_request/view.dart';
+import 'package:gradpro/presentation/splash/splash.dart';
 import 'package:gradpro/presentation/update_profile/update_profile.dart';
 
 import '../main/widgets/filter.dart';
@@ -21,7 +22,7 @@ import '../signup_view/add_your_photo.dart';
 import '../signup_view/multi_select_intersts.dart';
 
 class Routes {
-  static const String chooseSignRoute = "/chooseSign";
+  static const String splash = "/splash";
   static const String loginRoute = "/login";
   static const String addPhotoScreen = "/addPhoto";
   static const String multiSelectScreen = "/multiSelect";
@@ -40,8 +41,8 @@ class Routes {
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.chooseSignRoute:
-        return MaterialPageRoute(builder: (_) => ChooseSignScreen());
+      case Routes.splash:
+        return MaterialPageRoute(builder: (_) => SplashView());
       case Routes.loginRoute:
         return MaterialPageRoute(builder: (_) =>  LoginScreen());
       case Routes.addPhotoScreen:

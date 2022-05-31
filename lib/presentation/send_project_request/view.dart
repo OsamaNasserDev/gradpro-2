@@ -75,7 +75,7 @@ class _SendRequestScreenState extends State<SendRequestScreen> {
                   ),
                   MultiSelectDialogField(
                     items: DataManager.fildesOfInterst
-                        .map((e) => MultiSelectItem(e, e.name ))
+                        .map((e) => MultiSelectItem(e, e ))
                         .toList(),
                     listType: MultiSelectListType.CHIP,
                     onConfirm: mainProviderForMethods.multiSelectOthers,
@@ -87,7 +87,7 @@ class _SendRequestScreenState extends State<SendRequestScreen> {
 
                   MultiSelectDialogField(
                     items: DataManager.tools
-                        .map((e) => MultiSelectItem(e, e.name))
+                        .map((e) => MultiSelectItem(e, e ))
                         .toList(),
                     listType: MultiSelectListType.CHIP,
                     onConfirm: mainProviderForMethods.multiSelectTools,
@@ -98,7 +98,7 @@ class _SendRequestScreenState extends State<SendRequestScreen> {
                   ),
                   MultiSelectDialogField(
                     items: DataManager.languages
-                        .map((e) => MultiSelectItem(e, e.name))
+                        .map((e) => MultiSelectItem(e, e ))
                         .toList(),
                     listType: MultiSelectListType.CHIP,
                     onConfirm: mainProviderForMethods.multiSelectLanguages,

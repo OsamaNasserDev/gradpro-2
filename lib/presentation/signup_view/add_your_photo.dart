@@ -4,6 +4,9 @@ import 'package:gradpro/presentation/resources/color_manager.dart';
 import 'package:gradpro/presentation/resources/routes_manger.dart';
 import 'package:gradpro/presentation/resources/values_manager.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
+
+import '../../view_model/main_provider.dart';
 
 class AddPhotoScreen extends StatefulWidget {
   const AddPhotoScreen({Key? key}) : super(key: key);
@@ -19,20 +22,9 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
   @override
   Widget build(BuildContext context) {
 
-    // get profile image
-   File? profileImage;
-    pickProfileImage({source = ImageSource.gallery}) async {
-      var pickedImage = await ImagePicker.platform.pickImage(source: source);
-      if (pickedImage != null) {
-        profileImage = File(pickedImage.path);
-        setState(() {});
-        print("Success picked");
-      } else {
-        // todo //////////////////////////
-        //toast
-        // print no image selected
-      }
-    }
+
+    final mainProvider = Provider.of<MainProvider>(context);
+    final mainProviderForMethods = Provider.of<MainProvider>(context,listen: false);
     return Scaffold(
       backgroundColor: ColorManager.background,
       body: Center(
@@ -56,7 +48,7 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                   CircleAvatar(
                     radius: 64,
                     backgroundColor: ColorManager.grey2,
-                    child: profileImage == null
+                    child: mainProvider.pickedImage == null
                         ? CircleAvatar(
                             radius: 60.0,
                             backgroundColor: Colors.grey,
@@ -64,14 +56,14 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
                           )
                         : CircleAvatar(
                             radius: 60.0,
-                            backgroundImage: FileImage(profileImage!),
+                            backgroundImage: FileImage(mainProvider.pickedImage !),
                           ),
                   ),
                   CircleAvatar(
                       radius: 16,
                       child: IconButton(
                           onPressed: () {
-                            pickProfileImage();
+                            mainProviderForMethods.pickProfileImage();
                           },
                           icon: Icon(
                             Icons.camera_alt_outlined,
@@ -96,7 +88,7 @@ class _AddPhotoScreenState extends State<AddPhotoScreen> {
               ),const SizedBox(
                 height: AppSize.s60,
               ),
-              if(profileImage != null )Row(
+              if(mainProvider.pickedImage  != null )Row(
                 children: [
                   Expanded(
                     child: ElevatedButton(

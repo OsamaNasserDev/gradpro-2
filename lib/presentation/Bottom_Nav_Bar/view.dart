@@ -67,7 +67,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
 
                 BottomNavigationBarItem(
                   icon: Icon(Icons.plagiarism_rounded ),
-                  label: 'My Projects',
+                  label: 'Team',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.person ),

@@ -65,7 +65,7 @@ class _MultiSelectState extends State<MultiSelect> {
                     height: 20,
                   ),
                   MultiSelectDialogField(
-                    items: DataManager.fildesOfInterst.map((e) => MultiSelectItem(e, e.name)).toList(),
+                    items: DataManager.fildesOfInterst.map((e) => MultiSelectItem(e, e)).toList(),
                     listType: MultiSelectListType.CHIP,
                     onConfirm: mainProviderForMethods.multiSelectOthers,
                     buttonText: const Text("Select fildes of interst"),
@@ -74,7 +74,7 @@ class _MultiSelectState extends State<MultiSelect> {
                     height: 20,
                   ),
                   MultiSelectDialogField(
-                    items: DataManager.softSkills.map((e) => MultiSelectItem(e, e.name)).toList(),
+                    items: DataManager.softSkills.map((e) => MultiSelectItem(e, e)).toList(),
                     listType: MultiSelectListType.CHIP,
                     onConfirm: mainProviderForMethods.multiSelectSoftSkills,
                     buttonText: const Text("Select soft Skills"),
@@ -83,7 +83,7 @@ class _MultiSelectState extends State<MultiSelect> {
                     height: 20,
                   ),
                   MultiSelectDialogField(
-                    items: DataManager.tools.map((e) => MultiSelectItem(e, e.name)).toList(),
+                    items: DataManager.tools.map((e) => MultiSelectItem(e, e)).toList(),
                     listType: MultiSelectListType.CHIP,
                     onConfirm: mainProviderForMethods.multiSelectTools,
                     buttonText: const Text("Select tools"),
@@ -92,7 +92,7 @@ class _MultiSelectState extends State<MultiSelect> {
                     height: 20,
                   ),
                   MultiSelectDialogField(
-                    items: DataManager.languages.map((e) => MultiSelectItem(e, e.name)).toList(),
+                    items: DataManager.languages.map((e) => MultiSelectItem(e, e)).toList(),
                     listType: MultiSelectListType.CHIP,
                     onConfirm: mainProviderForMethods.multiSelectLanguages,
                     buttonText: const Text("Select languages"),
@@ -104,10 +104,16 @@ class _MultiSelectState extends State<MultiSelect> {
                     children: [
                       Expanded(
                         child: ElevatedButton(
-                            onPressed: () {
+                            onPressed: () async{
                                 if (formKey.currentState!.validate()) {
                                   // todo : Sing up Method ********************************
-                                  Navigator.pushNamed(
+                                await mainProviderForMethods.signUp(
+                                  name: nameController.text,
+                                  email: emailController.text,
+                                  password: passwordController.text,
+                                  bio: bioController.text,
+                                );
+                                Navigator.pushNamed(
                                       context, Routes.bottomNavBarRoute);
                                 }
                             },
@@ -127,12 +133,12 @@ class _MultiSelectState extends State<MultiSelect> {
     );
   }
 }
-class SelectDataModel {
-  final int id;
-  final String name;
-
-  SelectDataModel({
-    required this.id,
-    required this.name,
-  });
-}
+// class SelectDataModel {
+//   final int id;
+//   final String name;
+//
+//   SelectDataModel({
+//     required this.id,
+//     required this.name,
+//   });
+// }

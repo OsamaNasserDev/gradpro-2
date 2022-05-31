@@ -22,46 +22,24 @@ class ChooseSignScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(ImageAssets.graduationHat,
-                    height: AppSize.s120, width: AppSize.s120),
-                const Text(AppStrings.gradPro),
+                Image.asset(ImageAssets.logo,
+                    height: AppSize.s250, width: AppSize.s250),
                 const SizedBox(
                   height: AppSize.s40,
                 ),
                 AnimatedTextKit(
                   animatedTexts: [
                     TypewriterAnimatedText(AppStrings.chooseSign,
-                        textStyle: Theme.of(context).textTheme.headlineLarge,
+                        textStyle: TextStyle(fontSize: 20),
                         speed: const Duration(
-                          milliseconds: 200,
+                          milliseconds: 100,
                         )),
                   ],
                   isRepeatingAnimation: true,
                   totalRepeatCount: 2,
 
                 ),
-                const SizedBox(
-                  height: AppSize.s40,
-                ),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, Routes.loginRoute);
-                    },
-                    child: const Padding(
-                      padding: EdgeInsets.all(AppPadding.p12),
-                      child: Text(AppStrings.joinAsStudent),
-                    )),
-                const SizedBox(
-                  height: AppSize.s8,
-                ),
-                ElevatedButton(
-                    onPressed: () {
 
-                    },
-                    child: const Padding(
-                      padding: EdgeInsets.all(AppPadding.p12),
-                      child: Text(AppStrings.joinAsDoctor),
-                    )),
               ],
             ),
           ),

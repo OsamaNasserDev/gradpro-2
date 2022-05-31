@@ -26,7 +26,7 @@ class UserModel {
 
   List<String>? skills;
   String? image;
-  int role;
+  int role; // 0 => doctor,,, 1 => student,,, 2 => leader
   List<String>? languages;
   List<ProjectsId>? projectsIds;
   String? teamId;
@@ -43,7 +43,7 @@ class UserModel {
     role: json["role"],
     languages: List<String>.from(json["languages"].map((x) => x)),
     projectsIds: List<ProjectsId>.from(json["projectsIds"].map((x) => ProjectsId.fromJson(x))),
-    teamId: json["teamId"],
+    teamId: json["team_id"],
     name: json["name"],
     bio: json["bio"],
     id: json["id"],
@@ -58,7 +58,7 @@ class UserModel {
     "role": role,
     "languages": languages != null?List<dynamic>.from(languages!.map((x) => x)):null,
     "projectsIds":projectsIds != null? List<dynamic>.from(projectsIds!.map((x) => x.toJson())):null,
-    "teamId": teamId,
+    "team_id": teamId,
     "name": name,
     "bio": bio,
     "id": id,
